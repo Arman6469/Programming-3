@@ -429,7 +429,7 @@ for (var r = 0; r <= 10; r++) {
     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 4;
 }
 for(var q = 0; q<=1; q++){
-    matrix[Math.round(Math.random() * 49)][Math.round(Math.random() * 40)]=5;
+    matrix[Math.round(Math.random() * 40)][Math.round(Math.random() * 40)]=5;
 }
 
 
@@ -480,27 +480,27 @@ function draw() {
         xotakerArr[l].Mahanal()
     }
 
-    for (var k in gishatichArr) {
-        gishatichArr[k].utel();
+    // for (var k in gishatichArr) {
+    //     gishatichArr[k].utel();
 
-        gishatichArr[k].Bazmanal();
+    //     gishatichArr[k].Bazmanal();
 
-        gishatichArr[k].Mahanal();
-    }
+    //     gishatichArr[k].Mahanal();
+    // }
 
-    for (var f in mardArr) {
-        mardArr[f].utel();
+    // for (var f in mardArr) {
+    //     mardArr[f].utel();
 
-        mardArr[f].Bazmanal();
+    //     mardArr[f].Bazmanal();
 
-        mardArr[f].Mahanal();
-    }
+    //     mardArr[f].Mahanal();
+    // }
 
 
 
-    for(var g in hoxmArr){
-        hoxmArr[g].haytnvel();
-    }
+    // for(var g in hoxmArr){
+    //     hoxmArr[g].haytnvel();
+    // }
 
 
 
