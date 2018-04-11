@@ -55,7 +55,7 @@ class Hoxm {
             }
 
         }
-        // matrix[this.y][this.x] = 5;
+        matrix[this.y][this.x] = 5;
 
 
     }

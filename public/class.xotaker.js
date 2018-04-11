@@ -1,13 +1,13 @@
 class Xotaker extends Dnk {
     constructor(x, y) {
-        super(x,y);
-       this.energy = 8;
-        
+        super(x, y);
+        this.energy = 8;
+
 
 
 
     }
-    
+
 
 
     utel() {

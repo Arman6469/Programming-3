@@ -1,11 +1,8 @@
-class Mard {
+class Mard extends Dnk {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.multyply = 0
+        super(x, y);
         this.energy = 8;
-        this.directions = [];
-        this.movement = 0
+
 
 
 
@@ -31,24 +28,6 @@ class Mard {
 
         }
         return found;
-    }
-
-
-
-
-
-
-    stanalNorKordinatner() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
     }
 
     utel() {
