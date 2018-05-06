@@ -46,4 +46,23 @@ class Dnk {
             [this.x + 1, this.y + 1]
         ];
     }
+
+
+ Move() {
+        this.stanalNorKordinatner();
+        var norVandak = this.yntrelVandak1(1, 0);
+        var yntrelVandak = random(norVandak)
+        if (yntrelVandak) {
+            this.energy--;
+            matrix[this.y][this.x] = 0;
+            this.y = yntrelVandak[1];
+            this.x = yntrelVandak[0];
+            matrix[this.y][this.x] = 3;
+
+
+
+        }
+
+
+    }
 }
