@@ -1,5 +1,5 @@
 class Mard extends Dnk {
-    constructor(x, y) {
+    constructor(x, y, ser) {
         super(x, y);
         this.energy = 8;
 

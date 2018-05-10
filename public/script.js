@@ -33,7 +33,25 @@ function setup() {
     }
 }
 
-
+for (var y in matrix) {
+    for (var x in matrix) {
+        if (matrix[y][x] == 2) {
+            var r = (Math.round(Math.random())) / 2;
+            xotakerArr.push(new Xotaker(x, y, r));
+            matrix[y][x] += r;
+        }
+        else if (matrix[y][x] == 3 ) {
+            var r = (Math.round(Math.random())) / 2;
+            xotakerArr.push(new Gishatich(x, y, r));
+            matrix[y][x] += r;
+        }
+        else if (matrix[y][x] == 4) {
+            var r = (Math.round(Math.random())) / 2;
+            xotakerArr.push(new Mard(x, y, r));
+            matrix[y][x] += r;
+        }
+    }
+}
 
 var matrix = [];
 for (var i = 0; i < 40; i++) {
@@ -75,12 +93,24 @@ function draw() {
                 fill("yellow");
                 rect(x * side, y * side, side, side);
             }
+            else if (matrix[y][x] == 2.5) {
+                fill((250, 246, 118));
+                rect(x * side, y * side, side, side);
+            }
             else if (matrix[y][x] == 3) {
                 fill(209, 6, 6);
                 rect(x * side, y * side, side, side);
             }
+            else if (matrix[y][x] == 3.5) {
+                fill(209, 6, 100);
+                rect(x * side, y * side, side, side);
+            }
             else if (matrix[y][x] == 4) {
                 fill(231, 151, 91);
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 4) {
+                fill(231, 151, 130);
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 5) {

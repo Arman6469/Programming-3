@@ -48,21 +48,15 @@ class Dnk {
     }
 
 
- Move() {
-        this.stanalNorKordinatner();
-        var norVandak = this.yntrelVandak1(1, 0);
-        var yntrelVandak = random(norVandak)
-        if (yntrelVandak) {
-            this.energy--;
-            matrix[this.y][this.x] = 0;
-            this.y = yntrelVandak[1];
-            this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 3;
-
-
-
+    Bazmanal(){
+        if(this.ser == "arakan"){
+            var vandak = random(this.yntrelVandak(2.5));
         }
-
-
+        if (vandak) {
+            var norVandak = random(this.yntrelVandak(0))
+        }
+        if (norVandak){
+            // Bazmanal
+        }
     }
 }

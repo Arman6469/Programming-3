@@ -1,12 +1,16 @@
 class Xotaker extends Dnk {
-    constructor(x, y) {
+    constructor(x, y, ser) {
         super(x, y);
         this.energy = 8;
-
-
-
+        this.ser = (ser == 0 ? "arakan" : "igakan");
+        if (ser == 0) {
+            this.ser = "arakan"
+        }
+        else this.ser = "igakan"
 
     }
+
+   
 
 
 
@@ -58,19 +62,19 @@ class Xotaker extends Dnk {
 
     }
 
-    Bazmanal() {
-        this.movement++;
-        var norVandak = random(this.yntrelVandak(0));
-        if (norVandak) {
-            if (this.energy >= 10) {
-                var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
-                xotakerArr.push(norXotaker);
-                matrix[norVandak[1]][norVandak[0]] = 2;
-                this.energy = 6;
-            }
-        }
+    // Bazmanal() {
+    //     this.movement++;
+    //     var norVandak = random(this.yntrelVandak(0));
+    //     if (norVandak) {
+    //         if (this.energy >= 10) {
+    //             var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
+    //             xotakerArr.push(norXotaker);
+    //             matrix[norVandak[1]][norVandak[0]] = 2;
+    //             this.energy = 6;
+    //         }
+    //     }
 
-    }
+    // }
 
 
 
