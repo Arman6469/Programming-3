@@ -39,7 +39,7 @@ class Mard extends Dnk {
             matrix[this.y][this.x] = 0;
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 4
+            matrix[this.y][this.x] = this.ser == "arakan" ? 4 : 4.5;
 
             for (var i in gishatichArr) {
                 if (this.y == gishatichArr[i].y && this.x == gishatichArr[i].x) {
@@ -84,7 +84,7 @@ class Mard extends Dnk {
             matrix[this.y][this.x] = 0;
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 4;
+            matrix[this.y][this.x] = this.ser == "arakan" ? 4 : 4.5;
 
 
 
@@ -94,19 +94,24 @@ class Mard extends Dnk {
     }
 
     Bazmanal() {
-        this.movement++;
-        var norVandak = random(this.yntrelVandak(0));
-        if (norVandak) {
-            if (this.energy >= 30) {
-                var norMard = new Mard(norVandak[0], norVandak[1]);
-                mardArr.push(norMard);
-                matrix[norVandak[1]][norVandak[0]] = 4;
-                this.energy = 6;
+        if (this.ser == "arakan") {
+            var vandak = random(this.yntrelVandak(2.5));
+            if (vandak) {
+                var norVandak = random(this.yntrelVandak(0))
             }
+            this.movement++;
+            var norVandak = random(this.yntrelVandak(0));
+            if (norVandak) {
+                if (this.energy >= 30) {
+                    var norMard = new Mard(norVandak[0], norVandak[1]);
+                    mardArr.push(norMard);
+                    matrix[norVandak[1]][norVandak[0]] = 4 + (Math.round(Math.random())) / 2;;
+                    this.energy = 6;
+                }
+            }
+
         }
-
     }
-
 
 
     Mahanal() {

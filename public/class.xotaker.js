@@ -2,7 +2,6 @@ class Xotaker extends Dnk {
     constructor(x, y, ser) {
         super(x, y);
         this.energy = 8;
-        this.ser = (ser == 0 ? "arakan" : "igakan");
         if (ser == 0) {
             this.ser = "arakan"
         }
@@ -10,7 +9,7 @@ class Xotaker extends Dnk {
 
     }
 
-   
+
 
 
 
@@ -23,7 +22,7 @@ class Xotaker extends Dnk {
             matrix[this.y][this.x] = 0;
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 2
+            matrix[this.y][this.x] = this.ser == "arakan" ? 2 : 2.5;
 
             for (var i in grassArr) {
                 if (this.y == grassArr[i].y && this.x == grassArr[i].x) {
@@ -53,30 +52,34 @@ class Xotaker extends Dnk {
             matrix[this.y][this.x] = 0;
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 2;
-
-
-
+            matrix[this.y][this.x] = this.ser == "arakan" ? 2 : 2.5;
         }
 
 
     }
 
-    // Bazmanal() {
-    //     this.movement++;
-    //     var norVandak = random(this.yntrelVandak(0));
-    //     if (norVandak) {
-    //         if (this.energy >= 10) {
-    //             var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
-    //             xotakerArr.push(norXotaker);
-    //             matrix[norVandak[1]][norVandak[0]] = 2;
-    //             this.energy = 6;
-    //         }
-    //     }
 
-    // }
+    Bazmanal() {
+        if (this.ser == "arakan") {
+            var vandak = random(this.yntrelVandak(2.5));
+            if (vandak) {
+                var norVandak = random(this.yntrelVandak(0))
+                if (norVandak) {
+                    this.movement++;
+                    var norVandak = random(this.yntrelVandak(0));
+                    if (norVandak) {
+                        if (this.energy >= 10) {
+                            var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
+                            xotakerArr.push(norXotaker);
+                            matrix[norVandak[1]][norVandak[0]] = 2 + (Math.round(Math.random())) / 2;
+                            this.energy = 6;
+                        }
+                    }
 
-
+                }
+            }
+        }
+    }
 
     Mahanal() {
         if (this.energy == 0) {

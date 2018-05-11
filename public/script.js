@@ -6,6 +6,27 @@ var grassArr = []
 
 var side = 16
 
+var matrix = [];
+for (var i = 0; i < 40; i++) {
+    matrix.push([]);
+    for (var h = 0; h < 40; h++) {
+        matrix[i][h] = Math.floor(Math.random() * 2);
+    }
+}
+for (var u = 0; u <= 15; u++) {
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 2;
+}
+for (var o = 0; o <= 40; o++) {
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 3;
+}
+for (var r = 0; r <= 10; r++) {
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 4;
+}
+for (var q = 0; q <= 1; q++) {
+    matrix[Math.round(Math.random() * 40)][Math.round(Math.random() * 40)] = 5;
+}
+
+
 function setup() {
     frameRate(10);
     noStroke();
@@ -18,13 +39,19 @@ function setup() {
                 grassArr.push(new Grass(x, y));
             }
             else if (matrix[y][x] == 2) {
-                xotakerArr.push(new Xotaker(x, y));
+                var r = (Math.round(Math.random())) / 2;
+                xotakerArr.push(new Xotaker(x, y, r));
+                matrix[y][x] += r;
             }
             else if (matrix[y][x] == 3) {
-                gishatichArr.push(new Gishatich(x, y));
+                var r = (Math.round(Math.random())) / 2;
+                gishatichArr.push(new Gishatich(x, y, r));
+                matrix[y][x] += r;
             }
             else if (matrix[y][x] == 4) {
-                mardArr.push(new Mard(x, y));
+                var r = (Math.round(Math.random())) / 2;
+                mardArr.push(new Mard(x, y, r));
+                matrix[y][x] += r;
             }
             else if (matrix[y][x] == 5) {
                 hoxmArr.push(new Hoxm(x, y));
@@ -33,46 +60,10 @@ function setup() {
     }
 }
 
-for (var y in matrix) {
-    for (var x in matrix) {
-        if (matrix[y][x] == 2) {
-            var r = (Math.round(Math.random())) / 2;
-            xotakerArr.push(new Xotaker(x, y, r));
-            matrix[y][x] += r;
-        }
-        else if (matrix[y][x] == 3 ) {
-            var r = (Math.round(Math.random())) / 2;
-            xotakerArr.push(new Gishatich(x, y, r));
-            matrix[y][x] += r;
-        }
-        else if (matrix[y][x] == 4) {
-            var r = (Math.round(Math.random())) / 2;
-            xotakerArr.push(new Mard(x, y, r));
-            matrix[y][x] += r;
-        }
-    }
-}
 
-var matrix = [];
-for (var i = 0; i < 40; i++) {
-    matrix.push([]);
-    for (var h = 0; h < 40; h++) {
-        matrix[i][h] = Math.floor(Math.random() * 2);
-    }
-}
-for (var u = 0; u <= 15; u++) {
-    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 2;
-}
 
-for (var o = 0; o <= 40; o++) {
-    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 3;
-}
-for (var r = 0; r <= 10; r++) {
-    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 4;
-}
-for (var q = 0; q <= 1; q++) {
-    matrix[Math.round(Math.random() * 40)][Math.round(Math.random() * 40)] = 5;
-}
+
+
 
 
 
@@ -94,7 +85,7 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2.5) {
-                fill((250, 246, 118));
+                fill((250, 246, 240));
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3) {
@@ -109,7 +100,7 @@ function draw() {
                 fill(231, 151, 91);
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 4) {
+            else if (matrix[y][x] == 4.5) {
                 fill(231, 151, 130);
                 rect(x * side, y * side, side, side);
             }
@@ -132,7 +123,8 @@ function draw() {
         xotakerArr[l].Bazmanal();
 
         xotakerArr[l].Mahanal()
-    }
+    
+}
 
     for (var k in gishatichArr) {
         gishatichArr[k].utel();

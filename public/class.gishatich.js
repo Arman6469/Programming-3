@@ -43,7 +43,7 @@ class Gishatich extends Dnk {
             matrix[this.y][this.x] = 0;
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 3
+            matrix[this.y][this.x] = this.ser == "arakan" ? 3 : 3.5
 
             for (var i in xotakerArr) {
                 if (this.y == xotakerArr[i].y && this.x == xotakerArr[i].x) {
@@ -70,7 +70,7 @@ class Gishatich extends Dnk {
             matrix[this.y][this.x] = 0;
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
-            matrix[this.y][this.x] = 3;
+            matrix[this.y][this.x] = this.ser == "arakan" ? 3 : 3.5;
 
 
 
@@ -81,21 +81,26 @@ class Gishatich extends Dnk {
 
 
 
-   
+
     Bazmanal() {
-        this.movement++;
-        var norVandak = random(this.yntrelVandak(0));
-        if (norVandak) {
-            if (this.energy >= 10) {
-                var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
-                gishatichArr.push(norGishatich);
-                matrix[norVandak[1]][norVandak[0]] = 3;
-                this.energy = 6;
+        if (this.ser == "arakan") {
+            var vandak = random(this.yntrelVandak(2.5));
+            if (vandak) {
+                var norVandak = random(this.yntrelVandak(0))
             }
+            this.movement++;
+            var norVandak = random(this.yntrelVandak(0));
+            if (norVandak) {
+                if (this.energy >= 10) {
+                    var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
+                    gishatichArr.push(norGishatich);
+                    matrix[norVandak[1]][norVandak[0]] = 3 + (Math.round(Math.random())) / 2;;
+                    this.energy = 6;
+                }
+            }
+
         }
-
     }
-
 
 
     Mahanal() {

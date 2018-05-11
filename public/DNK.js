@@ -1,5 +1,5 @@
 class Dnk {
-    constructor(x, y) {
+    constructor(x, y, ) {
         this.x = x
         this.y = y
         this.directions = [
@@ -32,8 +32,6 @@ class Dnk {
 
 
 
-
-
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -48,15 +46,6 @@ class Dnk {
     }
 
 
-    Bazmanal(){
-        if(this.ser == "arakan"){
-            var vandak = random(this.yntrelVandak(2.5));
-        }
-        if (vandak) {
-            var norVandak = random(this.yntrelVandak(0))
-        }
-        if (norVandak){
-            // Bazmanal
-        }
-    }
+   
 }
+
