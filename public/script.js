@@ -13,7 +13,7 @@ for (var i = 0; i < 40; i++) {
         matrix[i][h] = Math.floor(Math.random() * 2);
     }
 }
-for (var u = 0; u <= 15; u++) {
+for (var u = 0; u <= 30; u++) {
     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 2;
 }
 for (var o = 0; o <= 40; o++) {

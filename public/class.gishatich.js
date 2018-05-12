@@ -2,6 +2,10 @@ class Gishatich extends Dnk {
     constructor(x, y, ser) {
         super(x, y)
         this.energy = 5;
+         if (ser == 0) {
+            this.ser = "arakan"
+        }
+        else this.ser = "igakan"
 
 
 
@@ -84,19 +88,20 @@ class Gishatich extends Dnk {
 
     Bazmanal() {
         if (this.ser == "arakan") {
-            var vandak = random(this.yntrelVandak(2.5));
+            var vandak = random(this.yntrelVandak(3.5));
             if (vandak) {
                 var norVandak = random(this.yntrelVandak(0))
             }
             this.movement++;
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-                if (this.energy >= 10) {
+               
                     var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
                     gishatichArr.push(norGishatich);
                     matrix[norVandak[1]][norVandak[0]] = 3 + (Math.round(Math.random())) / 2;;
-                    this.energy = 6;
-                }
+                   
+           
+                
             }
 
         }
