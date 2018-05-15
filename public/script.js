@@ -123,34 +123,35 @@ function draw() {
         xotakerArr[l].Bazmanal();
 
         xotakerArr[l].Mahanal()
-    
+
+    }
 }
 
-    for (var k in gishatichArr) {
-        gishatichArr[k].utel();
+// for (var k in gishatichArr) {
+//     gishatichArr[k].utel();
 
-        gishatichArr[k].Bazmanal();
+//     gishatichArr[k].Bazmanal();
 
-        gishatichArr[k].Mahanal();
-    }
+//     gishatichArr[k].Mahanal();
+// }
 
-    for (var f in mardArr) {
-        mardArr[f].utel();
+// for (var f in mardArr) {
+//     mardArr[f].utel();
 
-        mardArr[f].Bazmanal();
+//     mardArr[f].Bazmanal();
 
-        mardArr[f].Mahanal();
-    }
-
-
-
-    for (var g in hoxmArr) {
-        hoxmArr[g].haytnvel();
-    }
+//     mardArr[f].Mahanal();
+// }
 
 
 
-}
+// for (var g in hoxmArr) {
+//     hoxmArr[g].haytnvel();
+// }
+
+
+
+
 
 
 

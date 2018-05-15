@@ -1,5 +1,5 @@
 class Xotaker extends Dnk {
-    constructor(x, y, ser) {
+    constructor(x, y, ser, ex) {
         super(x, y);
         this.energy = 8;
         if (ser == 0) {
@@ -7,6 +7,19 @@ class Xotaker extends Dnk {
         }
         else this.ser = "igakan"
 
+        // this.exanak = [1, 2, 3, 4]
+        // if (ex == 1) {
+        //     this.exanak = "Garun"
+        // }
+        // else if (ex == 2) {
+        //     this.exanak = "Amar"
+        // }
+        // else if (ex == 3) {
+        //     this.exanak = "Ashun"
+        // }
+        // else {
+        //     this.exanak = "Dzmer"
+        // }
     }
 
 

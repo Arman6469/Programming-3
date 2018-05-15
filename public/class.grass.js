@@ -1,5 +1,5 @@
 class Grass {
-    constructor(x, y) {
+    constructor(x, y, ex) {
         this.x = x;
         this.y = y;
         this.multiply = 0;
@@ -15,6 +15,20 @@ class Grass {
 
 
         ];
+        this.exanak = [1, 2, 3, 4]
+        this.exanak1 = Math.random(this.exanak)
+        if (ex == 1) {
+            this.exanak1 = "Garun"
+        }
+        else if (ex == 2) {
+            this.exanak1 = "Amar"
+        }
+        else if (ex == 3) {
+            this.exanak1 = "Ashun"
+        }
+        else if (ex == 4) {
+            this.exanak1 = "Dzmer"
+        }
 
 
     }
@@ -40,19 +54,27 @@ class Grass {
 
 
 
-
-
     bazmanal() {
-        this.multiply++;
-        var norVandak = random(this.yntrelVandak(0));
-        if (this.multiply >= 7 && norVandak) {
-            var norXot = new Grass(norVandak[0], norVandak[1]);
-            grassArr.push(norXot);
-            matrix[norVandak[1]][norVandak[0]] = 1;
-            this.multiply = 1;
+        // console.log("AFDS")
+        if (this.exanak == "Dzmer") {
+            this.multiply++;
+            var norVandak = random(this.yntrelVandak(0));
+            if (this.multiply == 10 && norVandak) {
+                var norXot = new Grass(norVandak[0], norVandak[1]);
+                grassArr.push(norXot);
+                matrix[norVandak[1]][norVandak[0]] = 1;
+                this.multiply = 1;
+            }
+        }
+        else {
+            this.multiply++;
+            var norVandak = random(this.yntrelVandak(0));
+            if (this.multiply >= 7 && norVandak) {
+                var norXot = new Grass(norVandak[0], norVandak[1]);
+                grassArr.push(norXot);
+                matrix[norVandak[1]][norVandak[0]] = 1;
+                this.multiply = 1;
+            }
         }
     }
-
-
 }
-
