@@ -27,10 +27,29 @@ for (var q = 0; q <= 1; q++) {
 }
 
 
+var weather = "Amar";
+
+function exanak() {
+    if (weather == "Garun") {
+        weather = "Amar";
+    }
+    else if (weather == "Amar") {
+        weather = "Ashun";
+    }
+    else if (weather == "Ashun") {
+        weather = "Dzmer";
+    }
+    else if (weather == "Dzmer") {
+        weather = "Garun";
+    }
+}
+
+myVar = setInterval(exanak, 4000);
+
 function setup() {
     frameRate(10);
     noStroke();
-    createCanvas(matrix[0].length * side, matrix.length * side);
+    createCanvas(matrix[0].length * side, matrix.length * side + 50);
     background('#acacac');
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
@@ -68,14 +87,19 @@ function setup() {
 
 
 function draw() {
-
+    background('#acacac');
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
-            if (matrix[y][x] == 1) {
-                fill("green");
+            if (matrix[y][x] == 1 && weather == "Dzmer") {
+                fill(214, 249, 0);
                 rect(x * side, y * side, side, side);
             }
+            else if (matrix[y][x] == 1 && weather == "Amar" || "Ashun" || "Garun") {
+                fill("green")
+                rect(x * side, y * side, side, side);
+            }
+
             else if (matrix[y][x] == 0) {
                 fill("#acacac");
                 rect(x * side, y * side, side, side);
@@ -125,6 +149,8 @@ function draw() {
         xotakerArr[l].Mahanal()
 
     }
+    fill("black");
+    text("Now is " + weather, 0, matrix[0].length * side + 10);
 }
 
 // for (var k in gishatichArr) {
