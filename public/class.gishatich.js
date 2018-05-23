@@ -1,8 +1,11 @@
-class Gishatich extends Dnk {
+var Dnk = require('./class.DNK.js');
+
+
+module.exports = class Gishatich extends Dnk {
     constructor(x, y, ser) {
         super(x, y)
         this.energy = 5;
-         if (ser == 0) {
+        if (ser == 3) {
             this.ser = "arakan"
         }
         else this.ser = "igakan"
@@ -40,7 +43,7 @@ class Gishatich extends Dnk {
 
     utel() {
         this.stanalNorKordinatner();
-        var norVandak = this.yntrelVandak(2);
+        var norVandak = this.yntrelVandak1(2, 2.5);
         var yntrelVandak = random(norVandak)
         if (yntrelVandak) {
             this.energy++;
@@ -87,29 +90,41 @@ class Gishatich extends Dnk {
 
 
     Bazmanal() {
-        if (this.ser == "arakan") {
+        if (this.ser == "arakan" && this.weather == "Dzmer") {
             var vandak = random(this.yntrelVandak(3.5));
             if (vandak) {
                 var norVandak = random(this.yntrelVandak(0))
             }
-            this.movement++;
-            var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-               
-                    var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
-                    gishatichArr.push(norGishatich);
-                    matrix[norVandak[1]][norVandak[0]] = 3 + (Math.round(Math.random())) / 2;;
-                   
-           
-                
-            }
+                var norGishatich = new Gishatich(norVandak[0], norVandak[1]);
+                gishatichArr.push(norGishatich);
+                matrix[norVandak[1]][norVandak[0]] = 3;
 
+            }
+        }
+
+        else {
+            var vandak = random(this.yntrelVandak(3.5));
+            if (vandak) {
+                var norVandak = random(this.yntrelVandak(0))
+            }
+            if (norVandak) {
+                if (this.energy >= 9 ){
+                    var r = 2 + (Math.round(Math.random())) / 2;
+                var norGishatich = new Gishatich(norVandak[0], norVandak[1],r);
+                gishatichArr.push(norGishatich);
+                matrix[norVandak[1]][norVandak[0]] = 3 + (Math.round(Math.random())) / 2;;
+                this.energy == 7
+                console.log("es bazmaca")
+                }
+            }
         }
     }
 
 
+
     Mahanal() {
-        if (this.energy == -30) {
+        if (this.energy == -200) {
             matrix[this.y][this.x] = 0;
             for (var i in gishatichArr) {
                 if (this.y == gishatichArr[i].y && this.x == gishatichArr[i].x) {

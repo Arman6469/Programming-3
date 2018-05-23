@@ -1,4 +1,6 @@
-class Hoxm {
+var Dnk = require('./class.DNK.js')
+
+module.exports = class Hoxm {
     constructor(x, y) {
         this.x = x;
         this.y = y;

@@ -1,18 +1,16 @@
-class Xotaker extends Dnk {
-    constructor(x, y, ser, ex) {
+var Dnk = require('./class.DNK.js')
+
+module.exports = class Xotaker extends Dnk {
+    constructor(x, y, ser) {
         super(x, y);
         this.energy = 8;
-        if (ser == 0) {
-            this.ser = "arakan"
+        if (ser == 2) {
+            this.ser = "arakan";
         }
-        else this.ser = "igakan"
+        else this.ser = "igakan";
 
-      
+
     }
-
-
-
-
 
     utel() {
         this.stanalNorKordinatner();
@@ -37,7 +35,6 @@ class Xotaker extends Dnk {
         }
         else {
             this.Move();
-
         }
 
     }
@@ -66,15 +63,12 @@ class Xotaker extends Dnk {
             if (vandak) {
                 var norVandak = random(this.yntrelVandak(0))
                 if (norVandak) {
-                    this.movement++;
-                    var norVandak = random(this.yntrelVandak(0));
-                    if (norVandak) {
-
-                        var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
+                    if (this.energy >= 9) {
+                        var r = 2 + (Math.round(Math.random())) / 2;
+                        var norXotaker = new Xotaker(norVandak[0], norVandak[1], r);
                         xotakerArr.push(norXotaker);
-                        matrix[norVandak[1]][norVandak[0]] = 2 + (Math.round(Math.random())) / 2;
-
-
+                        matrix[norVandak[1]][norVandak[0]] = r;
+                        this.energy == 8
                     }
 
                 }
@@ -83,7 +77,7 @@ class Xotaker extends Dnk {
     }
 
     Mahanal() {
-        if (this.energy == 0) {
+        if (this.energy == -10) {
             matrix[this.y][this.x] = 0;
             for (var i in xotakerArr) {
                 if (this.y == xotakerArr[i].y && this.x == xotakerArr[i].x) {

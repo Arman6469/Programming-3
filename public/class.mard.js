@@ -1,8 +1,10 @@
-class Mard extends Dnk {
+var Dnk = require('./class.DNK.js')
+
+module.exports = class Mard extends Dnk {
     constructor(x, y, ser) {
         super(x, y);
         this.energy = 8;
-        if (ser == 0) {
+        if (ser == 4) {
             this.ser = "arakan"
         }
         else this.ser = "igakan"
@@ -11,7 +13,7 @@ class Mard extends Dnk {
 
 
     }
-    yntrelVandak(ch, ch1, ch2) {
+    yntrelVandak2(ch, ch1, ch2, ch3, ch4) {
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
@@ -27,6 +29,12 @@ class Mard extends Dnk {
                 if (matrix[y][x] == ch2) {
                     found.push(this.directions[i]);
                 }
+                if (matrix[y][x] == ch3) {
+                    found.push(this.directions[i]);
+                }
+                if (matrix[y][x] == ch4) {
+                    found.push(this.directions[i]);
+                }
 
             }
 
@@ -36,7 +44,7 @@ class Mard extends Dnk {
 
     utel() {
         this.stanalNorKordinatner();
-        var norVandak = this.yntrelVandak(3, 2, 1);
+        var norVandak = this.yntrelVandak2(3, 3.5, 2, 2.5, 1);
         var yntrelVandak = random(norVandak)
         if (yntrelVandak) {
             this.energy++;
@@ -79,6 +87,7 @@ class Mard extends Dnk {
 
 
 
+
     Move() {
         this.stanalNorKordinatner();
         var norVandak = this.yntrelVandak(0);
@@ -89,7 +98,6 @@ class Mard extends Dnk {
             this.y = yntrelVandak[1];
             this.x = yntrelVandak[0];
             matrix[this.y][this.x] = this.ser == "arakan" ? 4 : 4.5;
-
 
 
         }
@@ -103,20 +111,20 @@ class Mard extends Dnk {
             if (vandak) {
                 var norVandak = random(this.yntrelVandak(0))
             }
-            this.movement++;
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-
-                var norMard = new Mard(norVandak[0], norVandak[1]);
+                if (this.energy >= 10)
+                    var r = 4 + (Math.round(Math.random())) / 2;
+                var norMard = new Mard(norVandak[0], norVandak[1], r);
                 mardArr.push(norMard);
                 matrix[norVandak[1]][norVandak[0]] = 4 + (Math.round(Math.random())) / 2;;
-
-             console.log("BAZMACAN")
-
+                this.energy == 0;
             }
 
         }
+
     }
+
 
 
     Mahanal() {

@@ -1,4 +1,6 @@
-class Grass {
+var Dnk = require('./class.DNK.js')
+
+module.exports = class Grass {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -49,7 +51,6 @@ class Grass {
                 grassArr.push(norXot);
                 matrix[norVandak[1]][norVandak[0]] = 1;
                 this.multiply = 1;
-        console.log("AFDS")
             }
         }
         else {

@@ -1,5 +1,5 @@
-class Dnk {
-    constructor(x, y, ) {
+module.exports = class Dnk {
+    constructor(x, y) {
         this.x = x
         this.y = y
         this.directions = [
