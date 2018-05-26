@@ -44,7 +44,7 @@ module.exports = class Mard extends Dnk {
 
     utel() {
         this.stanalNorKordinatner();
-        var norVandak = this.yntrelVandak2(3, 3.5, 2, 2.5, 1);
+        var norVandak = this.yntrelVandak2(3.5, 3, 2.5, 2, 1);
         var yntrelVandak = random(norVandak)
         if (yntrelVandak) {
             this.energy++;
@@ -113,7 +113,7 @@ module.exports = class Mard extends Dnk {
             }
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-                if (this.energy >= 10)
+                if (this.energy >= 17)
                     var r = 4 + (Math.round(Math.random())) / 2;
                 var norMard = new Mard(norVandak[0], norVandak[1], r);
                 mardArr.push(norMard);

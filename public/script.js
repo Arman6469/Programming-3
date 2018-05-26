@@ -8,6 +8,8 @@ function setup() {
     background('#acacac');
 }
 
+
+
 socket.on('matrix', function (matrix) {
     background('#acacac');
     for (var y = 0; y < matrix.length; y++) {
@@ -20,6 +22,10 @@ socket.on('matrix', function (matrix) {
             }
             else if (matrix[y][x] == 1 && weather == "Dzmer") {
                 fill(214, 249, 0);
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 1 && weather != "Dzmer") {
+                fill("green")
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2) {
@@ -50,19 +56,23 @@ socket.on('matrix', function (matrix) {
                 fill("black");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 1 && weather == "Amar" || "Ashun" || "Garun") {
-                fill("green")
+            else if (matrix[x][y] == 6) {
+                fill("#009999")
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[x][y] == 6.5) {
+                fill("#00FFFF")
                 rect(x * side, y * side, side, side);
             }
         }
     }
-
+  
     fill("black");
     text("Now is " + weather, 0, matrix[0].length * side + 10);
 
 });
 
 
-socket.on('weather', function(data) {
+socket.on('weather', function (data) {
     weather = data;
 });

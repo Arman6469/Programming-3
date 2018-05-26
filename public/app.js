@@ -5,19 +5,20 @@ var io = require('socket.io')(server);
 
 app.use(express.static('.'));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-server.listen(3000, function() {
+server.listen(3000, function () {
   console.log("Server is running on port 3000");
 });
 
 global.random = function (arr) {
-   return arr[Math.floor(Math.random() * arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 // Array declaration
+global.mardakerArr = [];
 global.hoxmArr = [];
 global.mardArr = [];
 global.gishatichArr = [];
@@ -29,6 +30,7 @@ global.Grass = require('./class.grass.js');
 global.Xotaker = require('./class.xotaker.js');
 global.Gishatich = require('./class.gishatich.js');
 global.Mard = require('./class.mard.js');
+global.Mardaker = require('./class.mardaker.js')
 global.Hoxm = require('./class.hoxm.js');
 
 // Matrix initialization
@@ -50,6 +52,9 @@ for (var r = 0; r <= 7; r++) {
 }
 for (var q = 0; q <= 1; q++) {
   matrix[Math.round(Math.random() * 40)][Math.round(Math.random() * 40)] = 5;
+}
+for (var a = 0; a <= 4; a++) {
+  matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 6;
 }
 
 // Weather creation
@@ -96,9 +101,15 @@ function setup() {
       else if (matrix[y][x] == 5) {
         hoxmArr.push(new Hoxm(x, y));
       }
+      else if (matrix[y][x] == 6) {
+        var r = 4 + (Math.round(Math.random())) / 2;
+        mardakerArr.push(new Mardaker(x, y, r));
+        matrix[y][x] += r;
+      }
     }
   }
 }
+
 
 function draw() {
   for (var i in grassArr) {
@@ -134,10 +145,21 @@ function draw() {
   for (var g in hoxmArr) {
     hoxmArr[g].haytnvel();
   }
+
+  for (var f in mardakerArr) {
+    mardakerArr[f].utel();
+
+    mardakerArr[f].Bazmanal();
+  }
   io.sockets.emit('matrix', matrix);
+
+
+
+  
 }
 
 
 setup();
 setInterval(draw, 500);
 setInterval(exanak, 3000);
+

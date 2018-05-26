@@ -25,7 +25,7 @@ module.exports = class Hoxm {
 
             }
         }
-        else if (matrix[this.y][this.x] == 2) {
+        else if (matrix[this.y][this.x] == 2 || matrix[this.y][this.x] == 2.5) {
             for (var i in xotakerArr) {
                 if (this.y == xotakerArr[i].y && this.x == xotakerArr[i].x) {
                     xotakerArr.splice(i, 1);
@@ -35,7 +35,7 @@ module.exports = class Hoxm {
             }
         }
 
-        else if (matrix[this.y][this.x] == 3) {
+        else if (matrix[this.y][this.x] == 3 || matrix[this.y][this.x] == 3.5) {
             for (var i in gishatichArr) {
                 if (this.y == gishatichArr[i].y && this.x == gishatichArr[i].x) {
                     gishatichArr.splice(i, 1);
@@ -47,7 +47,17 @@ module.exports = class Hoxm {
         }
 
 
-        else if (matrix[this.y][this.x] == 4 ) {
+        else if (matrix[this.y][this.x] == 4 || matrix[this.y][this.x] == 4.5 ) {
+            for (var i in mardArr) {
+                if (this.y == mardArr[i].y && this.x == mardArr[i].x) {
+                    mardArr.splice(i, 1);
+                    break;
+                }
+
+            }
+
+        }
+         else if (matrix[this.y][this.x] == 6 || matrix[this.y][this.x] == 6.5 ) {
             for (var i in mardArr) {
                 if (this.y == mardArr[i].y && this.x == mardArr[i].x) {
                     mardArr.splice(i, 1);
