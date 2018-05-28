@@ -102,7 +102,7 @@ function setup() {
         hoxmArr.push(new Hoxm(x, y));
       }
       else if (matrix[y][x] == 6) {
-        var r = 4 + (Math.round(Math.random())) / 2;
+        var r = 6 + (Math.round(Math.random())) / 2;
         mardakerArr.push(new Mardaker(x, y, r));
         matrix[y][x] += r;
       }
@@ -146,10 +146,10 @@ function draw() {
     hoxmArr[g].haytnvel();
   }
 
-  for (var f in mardakerArr) {
-    mardakerArr[f].utel();
+  for (var p in mardakerArr) {
+    mardakerArr[p].utel();
 
-    mardakerArr[f].Bazmanal();
+    mardakerArr[p].Bazmanal();
   }
   io.sockets.emit('matrix', matrix);
 
