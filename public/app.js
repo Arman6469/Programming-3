@@ -16,7 +16,7 @@ server.listen(3000, function () {
 global.random = function (arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-
+//barev
 // Array declaration
 global.mardakerArr = [];
 global.hoxmArr = [];
